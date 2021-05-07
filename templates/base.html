@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>{% block title %}
+
+        {% endblock title %}</title>
+    <style>
+        .popover {
+            white-space: pre-line;
+        }
+
+        body {
+            background-color: #E6E6FA;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-expand-md navbar-dark bd-navbar">
+        <nav class="navbar navbar-dark bg-primary navbar-expand-lg ">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <!--<li class="nav-item">
+                        <a class="nav-link" href="www.google.com">About Us</a>
+                    </li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="text-center" style="color:rgb(95, 41, 109);">Chance of Admit in American University (Master's)</h1>
+    </div>
+    {% block body %}
+
+    {% endblock body %}
+    <div class="container">
+        <h2 style="color: coral;">Project done by :</h2>
+        <h4 style="color: rgb(221, 19, 19);">Rohit Gupta</h4>
+        <h4 style="color: rgb(221, 19, 19);">Vivek Gupta</h4>
+        <h4 style="color: rgb(221, 19, 19);">Naman Joshi</h4>
+    </div>
+    <footer>
+        <hr>
+        <div class="text-center">
+            <code style="color:black;">Copyright (c) 2021 TCET E&TC A 21</code>
+            <br />
+        </div>
+    </footer>
+    <br>
+</body>
+
+<script> popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })</script>
+
+</html>

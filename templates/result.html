@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}
+University Predictor - Result
+{% endblock title %}
+{% block body %}
+
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-1">
+        </div>
+        <div class="col-md-auto">
+            <form>
+                <div>
+                    <h1 style="color:blue">User Data</h1>
+                </div>
+                <div class="result">
+                    {% if result %}
+                    {% for variable, value in original_input.items() %}
+                    <pre class="form-control">{{ variable.upper() }}    :   {{ value }}</pre>
+                    {% endfor %}
+                </div>
+                <div>
+                    <h1 style="color:blue">Output</h1>
+                </div>
+                <h4>Predicted Chance Of Admit:</h4>
+                <p style="font-size:40px">{{ result }} %</p>
+                {% endif %}
+
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-1">
+        </div>
+        <div class="col-md-auto">
+            {% if result>90 %}
+            <h4>Suggested Colleges:</h4>
+            {% for i in range(2*original_input['university_rating']|int) %}
+            <h6>{{i+1}} - {{Clg_List[i]}}</h6>
+            {% endfor %}
+            {% elif result>80 %}
+            <h4>Suggested Colleges:</h4>
+            {% for i in range(2*original_input['university_rating']|int,4*original_input['university_rating']|int) %}
+            <h6>{{i+1-2*original_input['university_rating']|int}} - {{Clg_List[i]}}</h6>
+            {% endfor %}
+            {% elif result>70 %}
+            <h4>Suggested Colleges:</h4>
+            {% for i in range(4*original_input['university_rating']|int,6*original_input['university_rating']|int) %}
+            <h6>{{i+1-4*original_input['university_rating']|int}} - {{Clg_List[i]}}</h6>
+            {% endfor %}
+            {% elif result>60 %}
+            <h4>Suggested Colleges:</h4>
+            {% for i in range(6*original_input['university_rating']|int,8*original_input['university_rating']|int) %}
+            <h6>{{i+1-6*original_input['university_rating']|int}} - {{Clg_List[i]}}</h6>
+            {% endfor %}
+            {% elif result>50 %}
+            <h4>Suggested Colleges:</h4>
+            {% for i in range(8*original_input['university_rating']|int,10*original_input['university_rating']|int) %}
+            <h6>{{i+1-8*original_input['university_rating']|int}} - {{Clg_List[i]}}</h6>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+{% endblock body %}
